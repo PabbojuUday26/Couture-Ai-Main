@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Login Page</title>
+   <style>
+    body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('https://img.freepik.com/free-vector/abstract-blue-light-pipe-speed-zoom-black-background-technology_1142-8392.jpg?t=st=1740088127~exp=1740091727~hmac=b7d1f46103c78b4a596d3e14223bbeee0858decddcaaebda5d900b04da2648e3&w=1380') no-repeat center center/cover;
+  color: white;
+  margin: 0;
+}
+
+/* Login container */
+.login-container {
+  background: rgba(20, 20, 20, 0.9);
+  padding: 50px;
+  padding-left: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.login-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+}
+
+/* Input fields */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  transition: background 0.3s;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Select dropdown */
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  outline: none;
+  transition: background 0.3s;
+}
+
+select:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+button {
+  width: 375px;
+  padding: 15px;
+  background: linear-gradient(90deg, #00b4db, #0083b0); /* Matching blue gradient */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #0083b0, #005f7f); /* Slightly darker on hover */
+  transform: scale(1.05);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 400px) {
+  .login-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  button {
+    padding: 12px;
+  }
+}
+
+   </style>
+</head>
+<body>
+   <div class="login-container">
+       <h2>Welcome Back!</h2>
+       <p>Please enter your credentials to log in.</p>
+       <form id="login-form">
+           <input type="text" id="username" placeholder="Username" required>
+           <input type="password" id="password" placeholder="Password" required>
+           <button type="submit">Login</button>
+       </form>
+       <p class="register-text">Don't have an account? <a href="register.html" class="register-link">Register here</a></p>
+   </div>
+   <script>
+    function validateLogin(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    // Retrieve users from localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || {};
+
+    console.log("Stored users:", users);
+    console.log("Entered username:", username);
+    console.log("Entered password:", password);
+
+    if (users[username] && users[username].password === password) {
+        // Store login details
+        localStorage.setItem("loggedInUser", username);
+
+        alert("Login successful! Redirecting to dashboard...");
+
+        // Redirect to the common dashboard page
+        window.location.href = "dash.html";
+    } else {
+        alert("Invalid username or password. Please try again.");
+    }
+}
+
+// Attach event listener
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("login-form");
+    loginForm.addEventListener("submit", validateLogin);
+});
+
+   </script>
+</body>
+</html>

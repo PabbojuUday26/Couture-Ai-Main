@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-bottom: 2px solid #a855f7;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            position: relative;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #a855f7;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f1f1f;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        h1 {
+            color: #a855f7;
+            text-shadow: 0px 0px 8px rgba(168, 85, 247, 0.8);
+            font-size: 2em;
+        margin-bottom: 5px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .get-started {
+            background-color: #6200ea;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .get-started:hover {
+            background-color: #3700b3;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .team-member {
+            background: #1f1f1f;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+            border: 2px solid transparent;
+        }
+
+        /* Glowing Border Effect on Hover */
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(168, 85, 247, 0.6);
+            border: 2px solid #a855f7;
+        }
+
+        /* Styling h3 as a Button */
+        .team-member h3 {
+            background-color: #a855f7;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin: 10px 0;
+            font-size: 18px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .team-member h3:hover {
+            background-color: #8700c8;
+            transform: scale(1.05);
+        }
+
+        .team-member p {
+            color: #a855f7;
+        }
+
+        /* Dropdown Details Panel */
+        .details-panel {
+            background: #1f1f1f;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 8px;
+            width: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: opacity 0.5s, transform 0.5s, box-shadow 0.3s;
+            overflow: hidden;
+            max-height: 0;
+            border: 2px solid transparent;
+        }
+
+        /* Show Dropdown with Glow Effect */
+        .details-panel.show {
+            opacity: 1;
+            transform: scaleY(1);
+            max-height: 300px;
+            border: 2px solid black;
+            box-shadow: 0 6px 15px rgba(168, 85, 247, 0.6);
+        }
+
+        /* Apply the Same Glowing Hover Effect as Team Member Blocks */
+        .details-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(168, 85, 247, 0.6), 0 0 15px rgba(168, 85, 247, 0.8);
+            border: 2px solid #a855f7;
+            transition: box-shadow 0.3s ease-in-out, border 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .details-panel h2, .details-panel h4 {
+            margin: 5px 0;
+        }
+
+        /* Glowing LinkedIn Profile Link */
+        .details-panel p a {
+            color: #a855f7;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 2px solid #a855f7;
+            transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .details-panel p a:hover {
+            color: #ffffff;
+            background-color: #a855f7;
+            box-shadow: 0 4px 10px rgba(168, 85, 247, 0.6);
+            border: 2px solid #ffcc00;
+        }
+        .sign-out {
+            background-color: #d32f2f;
+            color: #ffffff;
+            padding: 10px 20px;
+            margin-right: 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sign-out:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="color:#a855f7">COUTURE AI</h1>
+        <nav>
+            <a href="dash.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <a href="gen.html">Cloth Generation</a>
+                    <a href="wardrobe.html">Virtual Wardrobe</a>
+                </div>
+            </div>
+            <a href="#">Team</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+        <button class="sign-out" id="signOutBtn">Sign Out</button>
+    </header>
+
+    <h2 style="text-align: center; color: #a855f7;">Meet Our Team</h2>
+
+    <div class="team-container">
+        <div class="team-member">
+            <h3 onclick="showDetails('Malraju Abhiram', 'Team Leader', 'https://www.linkedin.com/in/abhiram-malraju/')">Abhiram</h3>
+            <p>Team Leader</p>
+        </div>
+        <div class="team-member">
+            <h3 onclick="showDetails('Mareedu Srinivas', 'Team Member', 'https://www.linkedin.com/in/mareedu-srinivas-8a80872a5/')">Srinivas</h3>
+            <p>Team Member</p>
+        </div>
+        <div class="team-member">
+            <h3 onclick="showDetails('Pabboju Uday Chary', 'Team Member', 'https://www.linkedin.com/in/pabboju-uday-23157b286/')">Uday Chary</h3>
+            <p>Team Member</p>
+        </div>
+        <div class="team-member">
+            <h3 onclick="showDetails('Koyyala Nagendra Kishor', 'Team Member', 'https://www.linkedin.com/in/nagendra-kishor-66a0872a5/')">Kishor</h3>
+            <p>Team Member</p>
+        </div>
+    </div>
+
+    <!-- Dropdown Details Panel -->
+    <div id="details-panel" class="details-panel">
+        <h2 id="details-name" style="color: #a855f7;"></h2>
+        <h3 id="details-role" style="color: white;"></h3>
+        <p id="details-description">
+            <a id="linkedin-link" href="" target="_blank">View LinkedIn Profile</a>
+        </p>
+    </div>
+
+    <script>
+        function showDetails(name, role, linkedinURL) {
+            document.getElementById("details-name").textContent = name;
+            document.getElementById("details-role").textContent = role;
+
+            let linkElement = document.getElementById("linkedin-link");
+            linkElement.href = linkedinURL;
+
+            let panel = document.getElementById("details-panel");
+            panel.classList.toggle("show");
+        }
+        
+        document.getElementById("signOutBtn").addEventListener("click", function() {
+            window.location.href = "dash1.html";
+        });
+    
+    </script>
+
+</body>
+</html>

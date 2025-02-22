@@ -1,0 +1,412 @@
+/* General Styling */
+body {
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100vh;
+  overflow: hidden; /* Prevents scrolling */
+  padding-top: 70px; /* Prevent content overlap */
+}
+
+
+/* Layout */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Header and Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1f1f1f; /* Dark background for contrast */
+  border-bottom: 2px solid #a855f7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other elements */
+}
+
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #6200ea;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #2c2c2c;
+    min-width: 160px;
+    top: 100%; /* Ensures dropdown opens below the navbar */
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.sign-out {
+  background-color: #d32f2f;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin-right: 40px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sign-out:hover {
+  background-color: #b71c1c;
+}
+
+
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    background: #18122B;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 3px 0px 10px rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+}
+
+/* Align Sidebar Elements from Top */
+.sidebar > * {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Title */
+h1 {
+    color: #a855f7;
+    text-shadow: 0px 0px 8px rgba(168, 85, 247, 0.8);
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 1em;
+    color: #ccc;
+}
+
+/* Textarea */
+textarea {
+    width: 90%;
+    padding: 10px;
+    font-size: 1em;
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    transition: all 0.3s ease-in-out;
+}
+
+textarea:hover, 
+textarea:focus {
+    border: 1px solid #a855f7;
+    box-shadow: 0px 0px 12px rgba(168, 85, 247, 0.8);
+}
+
+/* Generate Button */
+button {
+    width: 90%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 10px;
+    background: #a855f7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #9333ea;
+    box-shadow: 0px 0px 20px rgba(147, 51, 234, 0.8);
+    transform: scale(1.05);
+}
+
+/* Loader */
+.loader-container {
+    display: none;
+    margin-top: 15px;
+}
+
+.loader {
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid #a855f7;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Image Section */
+/* Image Section - Centering the Image */
+.image-section {
+    width: 100%;
+    background: #0d0b18;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh; /* Full height */
+    position: relative;
+}
+
+/* Image Container - Centered */
+/* Image Container - Fixed Size & Centered */
+#imageContainer {
+    width: 80%; /* 350% wider */
+    max-width: none; /* Prevent restrictions */
+    height: 70vh; /* Fixed height */
+    background: #222;
+    border-radius: 10px;
+    display: flex;
+    padding-bottom:50px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Perfectly center it */
+}
+
+/* Ensure Image Fits Perfectly Inside Container */
+#imageContainer img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: contain; /* Ensures full image is visible without cropping */
+}
+
+/* Ensure it remains the same size */
+.has-image {
+    height: 80vh; /* Keep height the same */
+    width: 80%;
+}
+
+/* Hover Effect */
+#imageContainer:hover {
+    box-shadow: 0px 0px 20px rgba(168, 85, 247, 0.8);
+    transform: translate(-50%, -50%) scale(1.02);
+    border: 2px solid #a855f7;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    #imageContainer {
+        width: 95%; /* Adjust for smaller screens */
+        height: 70vh; /* Maintain proportional height */
+    }
+}
+
+
+
+/* Download Button Styling */
+/* Download Button */
+/* Download Button */
+
+
+button {
+    width: 90%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    background: #a855f7;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;  /* Enables flexbox */
+    align-items: center;  /* Centers vertically */
+    justify-content: center;  /* Centers horizontally */
+    text-align: center;
+}
+
+  
+  .button {
+    position: relative;
+    display: inline-flex;
+    height: 3.5rem;
+    align-items: center;
+    border-radius: 9999px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-family: Segoe UI;
+    font-size: 1.2rem;
+    font-weight: 640;
+    color: #fafaf6;
+    letter-spacing: -0.06em;
+  }
+  
+  .button-item {
+    background-color: #a855f7;
+  }
+  
+  .button-item .button-bg {
+    border-color: #a855f7;
+    background-color: #a855f7;
+  }
+  
+  .button-inner,
+  .button-inner-hover,
+  .button-inner-static {
+    pointer-events: none;
+    display: block;
+  }
+  
+  .button-inner {
+    position: relative;
+    text-align: center;
+  }
+  
+  .button-inner-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(70%);
+  }
+  
+  .button-bg {
+    overflow: hidden;
+    border-radius: 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .button-bg,
+  .button-bg-layer,
+  .button-bg-layers {
+    display: block;
+  }
+  
+  .button-bg-layers {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: -60%;
+    aspect-ratio: 1 / 1;
+    width: max(200%, 10rem);
+  }
+  
+  .button-bg-layer {
+    border-radius: 9999px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+  }
+  
+  .button-bg-layer.-purple {
+    background-color: rgba(163, 116, 255);
+  }
+  
+  .button-bg-layer.-turquoise {
+    background-color: rgba(23, 241, 209);
+  }
+  
+  .button-bg-layer.-yellow {
+    --tw-bg-opacity: 1;
+    background-color: rgba(169, 85, 247, var(--tw-bg-opacity));
+  }
+  
+  .button:hover .button-inner-static {
+    opacity: 0;
+    transform: translateY(-70%);
+    transition:
+      transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  
+  .button:hover .button-inner-hover {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      transform 1.4s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 1.4s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  .button:hover .button-bg-layer {
+    transition:
+      transform 1.3s cubic-bezier(0.19, 1, 0.22, 1),
+      opacity 0.3s linear;
+  }
+  
+  .button:hover .button-bg-layer-1 {
+    transform: scale(1);
+  }
+  
+  .button:hover .button-bg-layer-2 {
+    transition-delay: 0.1s;
+    transform: scale(1);
+  }
+  
+  .button:hover .button-bg-layer-3 {
+    transition-delay: 0.2s;
+    transform: scale(1);
+  }
+  

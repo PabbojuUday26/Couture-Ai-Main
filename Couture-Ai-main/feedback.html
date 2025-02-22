@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUTURE AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            transition: background-color 0.3s;
+            border-bottom: 2px solid #a855f7;
+        }
+
+        h1 {
+            color: #a855f7;
+            text-shadow: 0px 0px 8px rgba(168, 85, 247, 0.8);
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #6200ea;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f1f1f;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .sign-out {
+            background-color: #d32f2f;
+            color: #ffffff;
+            padding: 10px 20px;
+            margin-right: 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sign-out:hover {
+            background-color: #b71c1c;
+        }
+        .thank-you {
+            display: none;
+            font-size: 22px;
+            margin-top: 20px;
+            color: #a855f7;
+            align-items: center;
+    text-align: center;
+        }
+
+        .checkmark {
+            font-size: 50px;
+            color: #4CAF50;
+            display: block;
+            margin: 10px auto;
+        }
+        .container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #1f1f1f;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    
+    /* Centering */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            resize: none;
+            background-color: #2a2a2a;
+            color: #ffffff;
+        }
+        .submit {
+            background-color: #6200ea;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .submit:hover{
+            background-color: #3700b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color:#a855f7">COUTURE AI</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <a href="gen.html">Cloth Generation</a>
+                    <a href="wardrobe.html">Personal Wardrobe</a>
+                </div>
+            </div>
+            <a href="team.html">Team</a>
+            <a href="#">Feedback</a>
+        </nav>
+        <button class="sign-out" id="signOutBtn">Sign Out</button>
+    </header>
+    <div class="container" id="feedbackForm">
+        <h2>We Value Your Feedback</h2>
+        <textarea id="feedbackText" placeholder="Enter your feedback here..."></textarea>
+        <br>
+        <button onclick="submitFeedback()" class="submit">Submit Feedback</button>
+    </div>
+
+    <div class="thank-you" id="thankYouMessage">
+        <span class="checkmark">✔</span>
+        <p>Thank you for your valuable feedback!</p>
+    </div>
+    <script>
+        function submitFeedback() {
+            const username = localStorage.getItem("loggedInUser");  // Fetch logged-in username
+            const feedbackText = document.getElementById("feedbackText").value.trim();
+
+            if (!username) {
+                alert("Please sign in first to submit feedback.");
+                return;
+            }
+
+            if (feedbackText === "") {
+                alert("Feedback cannot be empty.");
+                return;
+            }
+
+            // Store feedback in local storage with the username
+            localStorage.setItem(`feedback_${username}`, feedbackText);
+
+            // Hide form and show thank you message
+            document.getElementById("feedbackForm").style.display = "none";
+            document.getElementById("thankYouMessage").style.display = "block";
+        }
+        document.getElementById("signOutBtn").addEventListener("click", function() {
+            window.location.href = "dash1.html";
+        });
+    </script>
+</body>
+</html>

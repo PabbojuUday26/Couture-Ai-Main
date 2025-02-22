@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CoutureAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1f1f1f;
+            border-bottom: 2px solid #a855f7;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #a855f7;
+        }
+
+        h1 {
+            color: #a855f7;
+            text-shadow: 0px 0px 8px rgba(168, 85, 247, 0.8);
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+
+        h1, h2 {
+            color: #a855f7;
+            transition: text-shadow 0.3s ease-in-out;
+        }
+
+        h2 {
+            font-size: 40px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f1f1f;
+            text-align: left;
+            min-width: 160px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .sign-out {
+            background-color: #d32f2f;
+            color: #ffffff;
+            padding: 10px 20px;
+            margin-right: 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Updated Textarea Styles */
+        textarea {
+            width: 80%;
+            height: 200px;
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #1f1f1f;
+            color: #ffffff;
+            border: 2px solid #a855f7;
+            box-shadow: 0 0 5px rgba(168, 85, 247, 0.5);
+            transition: box-shadow 0.3s, border-color 0.3s;
+            outline: none;
+            resize: none;
+            display: block;
+            margin: 20px auto;
+        }
+
+        textarea[readonly] {
+            cursor: context-menu;
+            opacity: 0.7;
+            background-color: #1a1a1a;
+            border: 2px solid #a855f7;
+        }
+
+        textarea:hover, textarea:focus {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
+            border-color: #a855f7;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>COUTURE AI</h1>
+        <nav>
+            <a href="dash.html">Home</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <a href="#">Services</a>
+                <div class="dropdown-content">
+                    <a href="gen.html">Cloth Generation</a>
+                    <a href="wardrobe.html">Personal Wardrobe</a>
+                </div>
+            </div>
+            <a href="team.html">Team</a>
+            <a href="feedback.html">Feedback</a>
+        </nav>
+        <a href="dash1.html" class="sign-out">Sign Out</a>
+    </header>
+
+    <h2>About CoutureAI</h2>
+    <div>
+        <textarea name="text" id="area" readonly>
+CoutureAI is an innovative platform designed to bridge the gap between fashion imagination and reality. It allows users to generate highly realistic clothing images based on text descriptions, empowering individuals to visualize their unique styles. By leveraging AI-powered image generation, CoutureAI enhances the shopping experience, making it more interactive and customizable. Users can create, save, and refine their clothing concepts, ensuring a seamless journey from idea to design. Future integrations with AI-driven tools will further expand the platform's capabilities, enabling users to bring their dream outfits to life with greater accuracy and personalization.
+        </textarea>
+    </div>
+  <h2 style="font-size:40px;">Solution</h2>
+    <div>
+        <textarea name="text" id="area" readonly>
+This solution directly addresses the challenge of providing personalized visual representations of clothing for online shoppers. Traditional shopping platforms often lack the ability to generate images based on specific user requests, leading to a gap between imagination and reality. By enabling customers to visualize their unique clothing ideas, CoutureAI enhances the shopping experience, making it more engaging and satisfying. This personalized experience not only helps users refine their designs but also enables them to confidently share their visions with tailors for custom creations, thereby expanding their shopping possibilities and improving customer satisfaction. Ultimately, CoutureAI helps bridge the gap in fashion design, fulfilling user needs and aligning with the growing demand for customized clothing.
+        </textarea>
+    </div>
+
+</body>
+</html>

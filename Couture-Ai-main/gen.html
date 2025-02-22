@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoutureAI - AI Fashion Generator</title>
+    <link rel="stylesheet" href="gen.css">
+</head>
+
+<header>
+    <h1 style="color:#a855f7" class="logo">COUTURE AI</h1>
+    <nav>
+        <a href="dash.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="dropdown">
+            <a href="#">Services</a>
+            <div class="dropdown-content">
+                <a href="gen.html">Cloth Generation</a>
+                <a href="wardrobe.html">Personal Wardrobe</a>
+            </div>
+        </div>
+        <a href="team.html">Team</a>
+        <a href="feedback.html">Feedback</a>
+    </nav>
+    <a href="dash1.html" class="sign-out">Sign Out</a>
+</header>
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <p>Create an image from text prompt</p>
+
+            <textarea id="description" placeholder="Give detailed clothing idea..." rows="4"></textarea>
+            <button class="button button-item" id="generateBtn">
+                <span class="button-bg">
+                  <span class="button-bg-layers">
+                    <span class="button-bg-layer button-bg-layer-1 -purple"></span>
+                    <span class="button-bg-layer button-bg-layer-2 -turquoise"></span>
+                    <span class="button-bg-layer button-bg-layer-3 -yellow"></span>
+                  </span>
+                </span>
+                <span class="button-inner">
+                  <span class="button-inner-static">Generate</span>
+                  <span class="button-inner-hover">Generate</span>
+                </span>
+            </button>
+
+            <div class="loader-container" id="loaderContainer">
+                <div class="loader"></div>
+                <p>&nbsp;Generating image...</p>
+            </div>
+
+            <!-- Buttons for Download & Save to Wardrobe (Initially Hidden) -->
+            <button class="button button-item" style="display: none;">Save to Wardrobe</button>
+            <button class="button button-item"  style="display: none;">Download Image</button>
+        </aside>
+
+        <!-- Image Display Section -->
+        <main class="image-section">
+            <div class="image-wrapper">
+                <div id="imageContainer">
+                    <p>No image generated yet</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="gen.js"></script>
+</body>
+</html>
