@@ -68,7 +68,7 @@ If you have any questions or feedback, please feel free to reach out to us at pa
 
 1. Abhiram(https://github.com/Abhi6816)
 2. Srinivas(https://github.com/SrinivasMareedu9392)
-3. Kishore
+3. Kishore(https://github.com/kishor-maker)
 
 ## Technologies Used
 
